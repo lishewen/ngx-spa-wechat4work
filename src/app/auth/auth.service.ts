@@ -14,13 +14,13 @@ export class AuthService {
     },
     wechatAppid: "ww47504af96f783648",
     storageName: {
-      wechatOpenid: 'wechat_openid', // 需要设置的 openid 名称
-      token: 'token', // 需要设置的 token 名称
+      UserId: 'UserId', // 需要设置的 openid 名称
+      user_ticket: 'user_ticket', // 需要设置的 token 名称
       tokenCreateAt: 'token_create_at', // token 的创建时间
       fullPath: 'full_path' // hash 后面的部分，如：/home/index
     },
     scope: 'snsapi_userinfo', // 微信应用授权作用域 'snsapi_base' 或 'snsapi_userinfo'
-    expira: 0
+    expira: 7200 * 1000
   };
 
   constructor(private datasource: RestDataSource) { }
