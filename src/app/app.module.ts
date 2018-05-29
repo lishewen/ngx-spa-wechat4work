@@ -7,19 +7,22 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JbNavComponent } from './jb-nav/jb-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { IndexComponent } from './index/index.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { WxauthComponent } from './wxauth/wxauth.component';
 import { RestDataSource } from './auth/rest-data-source';
+import { HttpClientModule } from '@angular/common/http';
+import { JbtableComponent } from './jbtable/jbtable.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JbNavComponent,
     IndexComponent,
-    WxauthComponent
+    WxauthComponent,
+    JbtableComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,11 @@ import { RestDataSource } from './auth/rest-data-source';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [RestDataSource],
   bootstrap: [AppComponent]

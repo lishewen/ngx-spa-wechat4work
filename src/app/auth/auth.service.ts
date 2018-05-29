@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { RestDataSource } from './rest-data-source';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,10 @@ export class AuthService {
   };
 
   constructor(private datasource: RestDataSource) { }
+
+  authenticate(code: string): Observable<boolean> {
+    return this.datasource.authenticate(code);
+  }
 
   get authenticated(): boolean {
     return this.datasource.auth_token != null;

@@ -4,10 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { WxauthComponent } from './wxauth/wxauth.component';
 import { RouterExtService } from './ext/router-ext.service';
+import { JbtableComponent } from './jbtable/jbtable.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: '', component: IndexComponent, pathMatch: 'full' },
-  { path: 'wxauth', component: WxauthComponent }
+  { path: 'wxauth', component: WxauthComponent },
+  { path: 'table', component: JbtableComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -15,7 +18,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes)
   ],
-  providers: [RouterExtService],
+  providers: [RouterExtService, AuthGuard],
   declarations: []
 })
 export class AppRoutingModule { }
