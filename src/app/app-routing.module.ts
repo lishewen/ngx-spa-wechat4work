@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { IndexComponent } from './index/index.component';
 import { WxauthComponent } from './wxauth/wxauth.component';
-import { RouterExtService } from './ext/router-ext.service';
 import { JbtableComponent } from './jbtable/jbtable.component';
 import { AuthGuard } from './auth/auth.guard';
 
@@ -18,7 +17,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes)
   ],
-  providers: [RouterExtService, AuthGuard],
+  providers: [AuthGuard],
   declarations: []
 })
 export class AppRoutingModule { }
