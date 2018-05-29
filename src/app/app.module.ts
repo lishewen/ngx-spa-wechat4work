@@ -12,6 +12,7 @@ import { IndexComponent } from './index/index.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { WxauthComponent } from './wxauth/wxauth.component';
+import { RestDataSource } from './auth/rest-data-source';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { WxauthComponent } from './wxauth/wxauth.component';
     MatListModule,
     CoreModule
   ],
-  providers: [],
+  providers: [RestDataSource],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
