@@ -21,7 +21,7 @@ export class AuthService {
       fullPath: 'full_path' // hash 后面的部分，如：/home/index
     },
     scope: 'snsapi_userinfo', // 微信应用授权作用域 'snsapi_base' 或 'snsapi_userinfo'
-    agentid: '1000006',
+    agentid: '1000010',
     expira: 7200 * 1000
   };
 
