@@ -11,12 +11,14 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { IndexComponent } from './index/index.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
+import { WxauthComponent } from './wxauth/wxauth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JbNavComponent,
-    IndexComponent
+    IndexComponent,
+    WxauthComponent
   ],
   imports: [
     BrowserModule,
