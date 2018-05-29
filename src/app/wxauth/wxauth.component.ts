@@ -44,6 +44,7 @@ export class WxauthComponent implements OnInit {
             '&redirect_uri=' + encodeURIComponent(window.location.href) +
             '&response_type=code' +
             '&scope=' + authservice.env.scope +
+            '&agentid=' + authservice.env.agentid +
             '&state=' +
             '#wechat_redirect';
         }
