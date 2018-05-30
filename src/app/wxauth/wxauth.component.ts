@@ -50,7 +50,7 @@ export class WxauthComponent implements OnInit {
       }
     } else {
       let fullPath = window.localStorage.getItem(authservice.env.storageName.fullPath);
-      this.errorMessage = fullPath;
+      this.router.navigateByUrl(fullPath || '/');
     }
   }
 
