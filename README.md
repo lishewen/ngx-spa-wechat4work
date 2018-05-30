@@ -12,6 +12,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## 说明
 
+虽说这个是支持企业微信，但做一定修改后是可以用在微信上的，换掉 WxauthComponent 请求code的跳转便可
+
 ### 路由
 
 本Demo的路由主要有三个
@@ -23,9 +25,9 @@ const routes: Routes = [
 ];
 ```
 
-其中，wxauth为企业微信callback的路由
-一个可匿名范围的全局路由
-和一个需要企业微信登录才可以访问的路由 table ，通过 AuthGuard 守卫 ， 其他需要登录的页面只需要添加守卫在路由处即可
+其中，wxauth为企业微信callback的路由  
+一个可匿名访问的全局路由  
+和一个需要企业微信登录才可以访问的路由 table ，通过 AuthGuard 守卫 ， 其他需要登录的页面只需要添加守卫在路由处即可  
 
 ### 后端
 
