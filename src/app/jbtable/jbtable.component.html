@@ -1,26 +1,28 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="搜索">
+</mat-form-field>
+
 <div class="mat-elevation-z8">
   <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
-
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
+    <ng-container matColumnDef="sBusNo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>车号</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.sBusNo}}</mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="sBusNo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>sBusNo</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.sBusNo}}</mat-cell>
+    <ng-container matColumnDef="rwSoftVer">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>版本</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.rwSoftVer|softVer}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastUpdateTime">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>更新时间</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.lastUpdateTime|date:'yyyy-MM-dd'}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 
-  <mat-paginator #paginator
-    [length]="dataSource.data.length"
-    [pageIndex]="0"
-    [pageSize]="50"
-    [pageSizeOptions]="[25, 50, 100, 250]">
+  <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="50" [pageSizeOptions]="[25, 50, 100, 250]">
   </mat-paginator>
 </div>
