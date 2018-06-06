@@ -22,7 +22,7 @@ export class AuthService {
     },
     scope: 'snsapi_userinfo', // 微信应用授权作用域 'snsapi_base' 或 'snsapi_userinfo'
     agentid: '1000010',
-    expira: 7200 * 1000
+    expira: 3600 * 1000
   };
 
   constructor(private datasource: RestDataSource) { }
@@ -32,6 +32,11 @@ export class AuthService {
   }
 
   get authenticated(): boolean {
+    //本地存储有缓存，则使用缓存
+    let user_ticket = window.localStorage.getItem(this.env.storageName.user_ticket);
+    if (user_ticket)
+      this.datasource.auth_token = user_ticket;
+
     return this.datasource.auth_token != null;
   }
 
