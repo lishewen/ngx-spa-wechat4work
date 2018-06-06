@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JbNavComponent } from './jb-nav/jb-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatRadioGroup } from '@angular/material';
 import { IndexComponent } from './index/index.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
@@ -16,6 +16,7 @@ import { RestDataSource } from './auth/rest-data-source';
 import { HttpClientModule } from '@angular/common/http';
 import { JbtableComponent } from './jbtable/jbtable.component';
 import { SoftVerPipe } from './jbtable/soft-ver.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { SoftVerPipe } from './jbtable/soft-ver.pipe';
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule,
+    FormsModule
   ],
   providers: [RestDataSource],
   bootstrap: [AppComponent]

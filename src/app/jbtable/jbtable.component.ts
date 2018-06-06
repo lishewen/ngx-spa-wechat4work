@@ -12,7 +12,6 @@ export class JbtableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource: MatTableDataSource<models.busInfo>;
-  data: models.busInfo[];
   title = 'IC刷卡机状态';
 
   constructor(private t: TitleService, private service: BusInfoService) {
@@ -20,14 +19,17 @@ export class JbtableComponent implements OnInit {
   }
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['sBusNo', 'rwSoftVer', 'lastUpdateTime'];
+  displayedColumns = ['lineNo', 'sBusNo', 'rwSoftVer', 'lastUpdateTime'];
 
   ngOnInit() {
     this.service.getBusInfo().subscribe(data => {
-      this.data = data;
       this.dataSource = new MatTableDataSource<models.busInfo>(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.dataSource.filterPredicate = (d, filter) =>
+        d.lineNo.endsWith(filter)
+        || d.sBusNo.indexOf(filter) > -1
+        || d.rwSoftVer.startsWith(filter)
     });
   }
 

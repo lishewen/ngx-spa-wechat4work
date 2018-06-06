@@ -4,6 +4,11 @@
 
 <div class="mat-elevation-z8">
   <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+    <ng-container matColumnDef="lineNo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>线路</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.lineNo|number}}</mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="sBusNo">
       <mat-header-cell *matHeaderCellDef mat-sort-header>车号</mat-header-cell>
       <mat-cell *matCellDef="let row">{{row.sBusNo}}</mat-cell>
