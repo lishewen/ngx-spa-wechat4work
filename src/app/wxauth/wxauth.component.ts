@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
-import { environment } from '../../environments/environment';
+import { environment } from 'src/environments/environment';
 import { RestDataSource } from '../auth/rest-data-source';
 
 @Component({
