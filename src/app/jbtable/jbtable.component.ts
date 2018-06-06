@@ -38,4 +38,15 @@ export class JbtableComponent implements OnInit {
     filterValue = filterValue.toUpperCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+
+  isToday(date): boolean {
+    let today = new Date();
+    let dd = new Date(date);
+    if (today.getFullYear() == dd.getFullYear()
+      && today.getMonth() == dd.getMonth()
+      && today.getDay() == dd.getDay()) {
+      return true;
+    }
+    return false;
+  }
 }
