@@ -5,11 +5,13 @@ import { IndexComponent } from './index/index.component';
 import { WxauthComponent } from './wxauth/wxauth.component';
 import { JbtableComponent } from './jbtable/jbtable.component';
 import { AuthGuard } from './auth/auth.guard';
+import { TimelineComponent } from './timeline/timeline.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent, pathMatch: 'full' },
   { path: 'wxauth', component: WxauthComponent },
-  { path: 'table', component: JbtableComponent, canActivate: [AuthGuard] }
+  { path: 'table', component: JbtableComponent, canActivate: [AuthGuard] },
+  { path: 'timeline', component: TimelineComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

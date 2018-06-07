@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { JbtableComponent } from './jbtable/jbtable.component';
 import { SoftVerPipe } from './jbtable/soft-ver.pipe';
 import { FormsModule } from '@angular/forms';
+import { TimelineComponent } from './timeline/timeline.component';
+import { NgxChronologyModule } from 'ngx-chronology';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     IndexComponent,
     WxauthComponent,
     JbtableComponent,
-    SoftVerPipe
+    SoftVerPipe,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    NgxChronologyModule
   ],
   providers: [RestDataSource],
   bootstrap: [AppComponent]
