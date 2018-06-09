@@ -34,7 +34,9 @@ export class AuthService {
   get authenticated(): boolean {
     //本地存储有缓存，则使用缓存
     let user_ticket = window.localStorage.getItem(this.env.storageName.user_ticket);
-    if (user_ticket)
+    let tokenCreateAt: number = parseInt(window.localStorage.getItem(this.env.storageName.tokenCreateAt));
+
+    if (user_ticket && new Date().getTime() - tokenCreateAt <= this.env.expira)
       this.datasource.auth_token = user_ticket;
 
     return this.datasource.auth_token != null;

@@ -17,10 +17,7 @@ export class WxauthComponent implements OnInit {
     private datasource: RestDataSource) {
 
     if (environment.production) {
-      let user_ticket = datasource.UserTicket;
-      let tokenCreateAt: number = parseInt(window.localStorage.getItem(authservice.env.storageName.tokenCreateAt));
-
-      if (user_ticket && new Date().getTime() - tokenCreateAt <= authservice.env.expira) { // token 存在也未过期，跳转到实际需要登录的页面
+      if (authservice.authenticated) { // token 存在也未过期，跳转到实际需要登录的页面
         let fullPath = window.localStorage.getItem(authservice.env.storageName.fullPath);
         this.router.navigateByUrl(fullPath || '/');
       } else { // token 不存在或过期，获取 token
