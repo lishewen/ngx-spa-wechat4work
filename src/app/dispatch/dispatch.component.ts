@@ -18,7 +18,7 @@ export class DispatchComponent implements OnInit {
   }
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['onBoardid', 'name', 'stationName', 'updateTime'];
+  displayedColumns = ['onBoardid', 'name', 'lineName', 'stationName', 'updateTime'];
 
   ngOnInit() {
     this.service.getDispatch().subscribe(data => {

@@ -32,14 +32,12 @@ export class UploaderService {
 
     // The `HttpClient.request` API produces a raw event stream
     // which includes start (sent), progress, and response events.
-    this.http.request(req).pipe(
+    return this.http.request(req).pipe(
       map(event => this.getEventMessage(event, file)),
       tap(message => this.showProgress(message)),
       last(), // return last (completed) message to caller
       catchError(this.handleError(file))
     );
-
-    return this.result;
   }
 
   /** Return distinct message for sent, upload progress, & response events */

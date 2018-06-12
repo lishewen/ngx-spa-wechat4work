@@ -12,7 +12,12 @@
 
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header>线路名</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.name}} {{row.lineName}}</mat-cell>
+      <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lineName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>上下行</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.lineName}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="stationName">
