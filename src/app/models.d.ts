@@ -44,3 +44,53 @@ declare namespace models {
         is补发包: boolean;
     }
 }
+
+declare namespace server {
+    interface entityBase<TKey> {
+        id: TKey;
+        name: string;
+        createTime: Date;
+        isDelete: boolean;
+    }
+    interface busEvent extends entityBase<number> {
+        /** 涉及车牌 */
+        carNo: string;
+        /** 涉及金额 */
+        money: number;
+        /** 内容描述 */
+        content: string;
+        /** 填报人 */
+        writer: string;
+        /** 相关图片 */
+        img: string;
+        state: eventState;
+        eventItems: eventItem[];
+    }
+    const enum eventState {
+        进行中,
+        关闭,
+    }
+    const enum eventItemState {
+        审核中,
+        通过,
+        不通过,
+    }
+    interface eventItem extends entityBase<number> {
+        /** 涉及车牌 */
+        carNo: string;
+        /** 涉及金额 */
+        money: number;
+        /** 内容描述 */
+        content: string;
+        /** 填报人 */
+        writer: string;
+        /** 审批人 */
+        approval: string;
+        /** 相关图片 */
+        img: string;
+        title: string;
+        icon: string;
+        faLibrary: string;
+        state: eventItemState;
+    }
+}
