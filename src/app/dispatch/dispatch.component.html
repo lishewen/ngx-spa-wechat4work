@@ -1,0 +1,38 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="搜索">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+
+    <ng-container matColumnDef="onBoardid">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>自编号</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.onBoardid}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>线路名</mat-header-cell>
+      <mat-cell *matCellDef="let row">({{row.name}} {{row.lineName}})</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="stationName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>站点名</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.stationName}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="updateTime">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>更新时间</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.updateTime|date:'hh:mm'}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+    [length]="dataSource.data.length"
+    [pageIndex]="0"
+    [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>

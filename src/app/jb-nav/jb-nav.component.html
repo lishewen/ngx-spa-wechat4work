@@ -3,9 +3,10 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
+      <a mat-list-item routerLink="/">首页</a>
+      <a mat-list-item routerLink="/dispatch">车辆位置</a>
       <a mat-list-item routerLink="/table">IC刷卡机状态</a>
       <a mat-list-item routerLink="/timeline">时间线组件</a>
-      <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

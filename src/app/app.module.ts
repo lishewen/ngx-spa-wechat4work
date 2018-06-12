@@ -19,6 +19,7 @@ import { SoftVerPipe } from './jbtable/soft-ver.pipe';
 import { FormsModule } from '@angular/forms';
 import { TimelineComponent } from './timeline/timeline.component';
 import { NgxChronologyModule } from 'ngx-chronology';
+import { DispatchComponent } from './dispatch/dispatch.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NgxChronologyModule } from 'ngx-chronology';
     WxauthComponent,
     JbtableComponent,
     SoftVerPipe,
-    TimelineComponent
+    TimelineComponent,
+    DispatchComponent
   ],
   imports: [
     BrowserModule,
