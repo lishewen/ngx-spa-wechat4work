@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { TimelineComponent } from './timeline/timeline.component';
 import { NgxChronologyModule } from 'ngx-chronology';
 import { DispatchComponent } from './dispatch/dispatch.component';
+import { AddBusEventComponent } from './bus-event/add-bus-event.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DispatchComponent } from './dispatch/dispatch.component';
     JbtableComponent,
     SoftVerPipe,
     TimelineComponent,
-    DispatchComponent
+    DispatchComponent,
+    AddBusEventComponent
   ],
   imports: [
     BrowserModule,
