@@ -93,4 +93,11 @@ declare namespace server {
         faLibrary: string;
         state: eventItemState;
     }
+    interface weUIUploadFileResult {
+		size: number;
+		path: string;
+		name: string;
+		type: string;
+		extName: string;
+	}
 }
