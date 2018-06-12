@@ -10,7 +10,7 @@ import { MessageService } from './message.service';
 export class UploaderService {
   UploadApiUrl = 'https://wx.wzjbbus.com/api/Home/UploadFile';
 
-  result: server.weUIUploadFileResult;
+  result: server.weUIUploadFileResult[];
 
   constructor(private http: HttpClient, private messenger: MessageService) { }
 
@@ -52,7 +52,7 @@ export class UploaderService {
         return `File "${file.name}" is ${percentDone}% uploaded.`;
 
       case HttpEventType.Response:
-        this.result = event.body as server.weUIUploadFileResult;
+        this.result = event.body as server.weUIUploadFileResult[];
         return `File "${file.name}" was completely uploaded!`;
 
       default:

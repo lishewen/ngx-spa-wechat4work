@@ -15,6 +15,7 @@
     相关图片：
     <mat-icon>add_a_photo</mat-icon>
   </label>
+  <p *ngIf="fileResult">{{fileResult.path}}</p>
   <input type="file" id="uploadPicture" class="hidden-input" accept="image/jpeg, .jpeg, image/png, .png, image/pjpeg, .jpg"
     (change)="selectFile($event.target.files[0])">
   <mat-form-field>
