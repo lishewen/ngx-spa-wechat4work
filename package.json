@@ -21,12 +21,12 @@
     "@angular/material": "^6.2.1",
     "@angular/platform-browser": "^6.0.4",
     "@angular/platform-browser-dynamic": "^6.0.4",
-    "@angular/pwa": "^0.6.5",
+    "@angular/pwa": "^0.6.8",
     "@angular/router": "^6.0.4",
     "@angular/service-worker": "^6.0.4",
     "core-js": "^2.5.4",
     "ngx-chronology": "^1.1.0",
-    "rxjs": "^6.0.0",
+    "rxjs": "^6.2.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
