@@ -10,3 +10,9 @@
 .hidden-input {
     display: none;
 }
+
+.button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

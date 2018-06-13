@@ -8,7 +8,8 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class UploaderService {
-  UploadApiUrl = 'https://wx.wzjbbus.com/api/Home/UploadFile';
+  //UploadApiUrl = 'https://wx.wzjbbus.com/api/Home/UploadFile';
+  UploadApiUrl = 'http://localhost:55552/api/Home/UploadFile';
 
   result: server.weUIUploadFileResult[];
 
@@ -26,7 +27,11 @@ export class UploaderService {
     // Create the request object that POSTs the file to an upload endpoint.
     // The `reportProgress` option tells HttpClient to listen and return
     // XHR progress events.
-    const req = new HttpRequest('POST', this.UploadApiUrl, file, {
+
+    const formData = new FormData();
+    formData.append('picdata', file);
+
+    const req = new HttpRequest('POST', this.UploadApiUrl, formData, {
       reportProgress: true
     });
 
