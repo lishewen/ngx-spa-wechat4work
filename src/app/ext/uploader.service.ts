@@ -8,8 +8,8 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class UploaderService {
-  //UploadApiUrl = 'https://wx.wzjbbus.com/api/Home/UploadFile';
-  UploadApiUrl = 'http://localhost:55552/api/Home/UploadFile';
+  UploadApiUrl = 'https://wx.wzjbbus.com/api/Home/UploadFile';
+  //UploadApiUrl = 'http://localhost:55552/api/Home/UploadFile';
 
   result: server.weUIUploadFileResult[];
 
