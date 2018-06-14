@@ -8,12 +8,14 @@ import { AuthGuard } from './auth/auth.guard';
 import { TimelineComponent } from './timeline/timeline.component';
 import { DispatchComponent } from './dispatch/dispatch.component';
 import { AddBusEventComponent } from './bus-event/add-bus-event.component';
+import { BusEventListComponent } from './bus-event/bus-event-list.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent, pathMatch: 'full' },
   { path: 'wxauth', component: WxauthComponent },
-  { path: 'addbusevent', component: AddBusEventComponent },
+  { path: 'addbusevent', component: AddBusEventComponent, canActivate: [AuthGuard] },
   { path: 'table', component: JbtableComponent, canActivate: [AuthGuard] },
+  { path: 'buseventlist', component: BusEventListComponent, canActivate: [AuthGuard] },
   { path: 'dispatch', component: DispatchComponent, canActivate: [AuthGuard] },
   { path: 'timeline', component: TimelineComponent, canActivate: [AuthGuard] },
 ];

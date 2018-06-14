@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JbNavComponent } from './jb-nav/jb-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSnackBarModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSnackBarModule, MatDividerModule } from '@angular/material';
 import { IndexComponent } from './index/index.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
@@ -21,6 +21,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { NgxChronologyModule } from 'ngx-chronology';
 import { DispatchComponent } from './dispatch/dispatch.component';
 import { AddBusEventComponent } from './bus-event/add-bus-event.component';
+import { BusEventListComponent } from './bus-event/bus-event-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AddBusEventComponent } from './bus-event/add-bus-event.component';
     SoftVerPipe,
     TimelineComponent,
     DispatchComponent,
-    AddBusEventComponent
+    AddBusEventComponent,
+    BusEventListComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,9 @@ import { AddBusEventComponent } from './bus-event/add-bus-event.component';
     MatRadioModule,
     FormsModule,
     NgxChronologyModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatListModule,
+    MatDividerModule
   ],
   providers: [RestDataSource],
   bootstrap: [AppComponent]

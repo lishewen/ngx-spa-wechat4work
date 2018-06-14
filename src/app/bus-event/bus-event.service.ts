@@ -14,4 +14,9 @@ export class BusEventService {
     let header = this.rest.Header;
     return this.http.post(this.busEventApiUrl, model, { headers: header, observe: 'response' });
   }
+
+  getBusEvent() {
+    let header = this.rest.Header;
+    return this.http.get<server.busEvent[]>(this.busEventApiUrl, { headers: header });
+  }
 }
