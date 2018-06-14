@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
@@ -30,5 +30,16 @@ export class RestDataSource {
 
     get UserTicket(): string {
         return this.auth_token;
+    }
+
+    get UserId(): string {
+        return this.user.UserId;
+    }
+
+    get Header(): HttpHeaders {
+        let header = new HttpHeaders();
+        header.append('x-userid', this.user != null ? this.user.UserId : '');
+        header.append('x-userticket', this.auth_token);
+        return header;
     }
 }
