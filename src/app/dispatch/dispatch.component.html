@@ -27,7 +27,7 @@
 
     <ng-container matColumnDef="updateTime">
       <mat-header-cell *matHeaderCellDef mat-sort-header>更新时间</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.updateTime|date:'hh:mm'}}</mat-cell>
+      <mat-cell *matCellDef="let row">{{row.updateTime|date:'HH:mm'}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
