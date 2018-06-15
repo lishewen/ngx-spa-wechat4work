@@ -25,6 +25,8 @@ export class TimelineComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.service.getBusEventDetail(id).subscribe(data => {
       this.busevent = data;
+      this.title = data.name + '(' + data.carNo + ')';
+      this.t.setTitle(this.title);
     });
   }
 }

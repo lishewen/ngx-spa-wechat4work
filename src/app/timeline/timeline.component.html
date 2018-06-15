@@ -1,12 +1,23 @@
+<div class="button-row">
+  <a mat-fab color="accent" routerLink=".">
+    <mat-icon aria-label="后续跟进">add</mat-icon>
+  </a>
+</div>
 <ngx-chronology [events]="busevent.eventItems" [title]="busevent.name">
   <ng-template let-event ngxChronologyTitle>
     <h3>{{ event.title }}</h3>
   </ng-template>
   <ng-template let-event ngxChronologyContent>
     <div>
-      Hello I have access to the event object inside of my templates.
-      <br> title: {{ event.title }}
-      <br> content: {{ event.content }}
+      <p>内容描述： {{ event.content }}</p>
+      <p>填报人： {{ event.writer }}</p>
+      <p>涉及金额：￥{{ event.money }}</p>
+      <img *ngIf="event.img" [src]="event.img" style="width: 100%" />
     </div>
   </ng-template>
 </ngx-chronology>
+<div class="button-row">
+  <a mat-fab color="accent" routerLink=".">
+    <mat-icon aria-label="后续跟进">add</mat-icon>
+  </a>
+</div>

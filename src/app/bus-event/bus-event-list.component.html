@@ -1,5 +1,10 @@
 <mat-list>
-  <h3 mat-subheader>安全事件</h3>
+  <div mat-subheader>
+    <a mat-raised-button color="primary" routerLink="/addbusevent">
+      <mat-icon>send</mat-icon>
+      安全事件上报
+    </a>
+  </div>
   <mat-list-item *ngFor="let item of list" routerLink="/timeline/{{item.id}}">
     <mat-icon mat-list-icon>note</mat-icon>
     <h4 mat-line>{{item.name}} - {{item.carNo}}</h4>
