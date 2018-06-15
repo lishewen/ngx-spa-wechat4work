@@ -1,4 +1,4 @@
-<ngx-chronology [events]="events" title="Using custom templates">
+<ngx-chronology [events]="busevent.eventItems" [title]="busevent.name">
   <ng-template let-event ngxChronologyTitle>
     <h3>{{ event.title }}</h3>
   </ng-template>

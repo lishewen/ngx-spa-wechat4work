@@ -3,6 +3,7 @@ import { HttpClient, HttpRequest } from '@angular/common/http';
 import { RestDataSource } from '../auth/rest-data-source';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { models } from '../models';
 
 @Injectable({
   providedIn: 'root'

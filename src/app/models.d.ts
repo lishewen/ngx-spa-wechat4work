@@ -1,3 +1,5 @@
+import { IChronologyEvent } from "ngx-chronology";
+
 declare namespace models {
     export interface busInfo {
         id: number;
@@ -75,7 +77,7 @@ declare namespace server {
         通过,
         不通过,
     }
-    interface eventItem extends entityBase<number> {
+    interface eventItem extends entityBase<number>, IChronologyEvent {
         /** 涉及车牌 */
         carNo: string;
         /** 涉及金额 */
@@ -94,10 +96,10 @@ declare namespace server {
         state: eventItemState;
     }
     interface weUIUploadFileResult {
-		size: number;
-		path: string;
-		name: string;
-		type: string;
-		extName: string;
-	}
+        size: number;
+        path: string;
+        name: string;
+        type: string;
+        extName: string;
+    }
 }

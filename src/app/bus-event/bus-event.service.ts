@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RestDataSource } from '../auth/rest-data-source';
+import { server } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,10 @@ export class BusEventService {
   getBusEvent() {
     let header = this.rest.Header;
     return this.http.get<server.busEvent[]>(this.busEventApiUrl, { headers: header });
+  }
+
+  getBusEventDetail(id: number) {
+    let header = this.rest.Header;
+    return this.http.get<server.busEvent>(this.busEventApiUrl + '/' + id, { headers: header });
   }
 }

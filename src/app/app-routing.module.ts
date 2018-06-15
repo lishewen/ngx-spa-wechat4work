@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'table', component: JbtableComponent, canActivate: [AuthGuard] },
   { path: 'buseventlist', component: BusEventListComponent, canActivate: [AuthGuard] },
   { path: 'dispatch', component: DispatchComponent, canActivate: [AuthGuard] },
-  { path: 'timeline', component: TimelineComponent, canActivate: [AuthGuard] },
+  { path: 'timeline/:id', component: TimelineComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

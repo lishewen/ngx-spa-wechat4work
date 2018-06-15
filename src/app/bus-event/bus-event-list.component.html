@@ -1,6 +1,6 @@
 <mat-list>
   <h3 mat-subheader>安全事件</h3>
-  <mat-list-item *ngFor="let item of list">
+  <mat-list-item *ngFor="let item of list" routerLink="/timeline/{{item.id}}">
     <mat-icon mat-list-icon>note</mat-icon>
     <h4 mat-line>{{item.name}} - {{item.carNo}}</h4>
     <p mat-line> {{item.createTime | date:'yyyy-MM-dd'}} </p>

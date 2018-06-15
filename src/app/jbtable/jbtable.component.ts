@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { TitleService } from '../ext/title.service';
 import { BusInfoService } from './bus-info.service';
+import { models } from '../models';
 
 @Component({
   selector: 'jbtable',
