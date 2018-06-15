@@ -25,4 +25,9 @@ export class BusEventService {
     let header = this.rest.Header;
     return this.http.get<server.busEvent>(this.busEventApiUrl + '/' + id, { headers: header });
   }
+
+  putEventItem(id: number, model: server.eventItem) {
+    let header = this.rest.Header;
+    return this.http.put(this.busEventApiUrl + '/' + id, model, { headers: header, observe: 'response' });
+  }
 }

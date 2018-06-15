@@ -9,6 +9,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { DispatchComponent } from './dispatch/dispatch.component';
 import { AddBusEventComponent } from './bus-event/add-bus-event.component';
 import { BusEventListComponent } from './bus-event/bus-event-list.component';
+import { AddEventItemComponent } from './bus-event/add-event-item.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent, pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'buseventlist', component: BusEventListComponent, canActivate: [AuthGuard] },
   { path: 'dispatch', component: DispatchComponent, canActivate: [AuthGuard] },
   { path: 'timeline/:id', component: TimelineComponent, canActivate: [AuthGuard] },
+  { path: 'addeventitem/:id', component: AddEventItemComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

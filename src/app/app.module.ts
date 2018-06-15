@@ -22,6 +22,7 @@ import { NgxChronologyModule } from 'ngx-chronology';
 import { DispatchComponent } from './dispatch/dispatch.component';
 import { AddBusEventComponent } from './bus-event/add-bus-event.component';
 import { BusEventListComponent } from './bus-event/bus-event-list.component';
+import { AddEventItemComponent } from './bus-event/add-event-item.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BusEventListComponent } from './bus-event/bus-event-list.component';
     TimelineComponent,
     DispatchComponent,
     AddBusEventComponent,
-    BusEventListComponent
+    BusEventListComponent,
+    AddEventItemComponent
   ],
   imports: [
     BrowserModule,

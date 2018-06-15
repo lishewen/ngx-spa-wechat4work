@@ -1,0 +1,24 @@
+<div class="busevent-container">
+  <mat-form-field>
+    <input matInput placeholder="简述" [(ngModel)]="model.name" />
+  </mat-form-field>
+  <mat-form-field>
+    <input type="number" matInput placeholder="涉及金额" [(ngModel)]="model.money" />
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="详细描述" [(ngModel)]="model.content"></textarea>
+  </mat-form-field>
+  <label for="uploadPicture" class="upload-file">
+    相关图片：
+    <mat-icon>add_a_photo</mat-icon>
+  </label>
+  <img *ngIf="fileResult" [src]="model.img" style="width: 100%" />
+  <input type="file" id="uploadPicture" class="hidden-input" accept="image/jpeg, .jpeg, image/png, .png, image/pjpeg, .jpg"
+    (change)="selectFile($event.target.files[0])">
+  <mat-form-field>
+    <input matInput placeholder="填报人" [(ngModel)]="model.writer" />
+  </mat-form-field>
+  <div class="button-row">
+    <button mat-raised-button color="primary" (click)="newEventItem()">提交</button>
+  </div>
+</div>
