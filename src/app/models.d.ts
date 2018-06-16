@@ -21,8 +21,14 @@ declare namespace models {
         rwSoftUpdateFlag: boolean;
     }
     export interface GetUserInfoResult {
-        UserId: string;
+        userId: string;
         user_ticket: string;
+        errcode: number;
+    }
+    export interface GetUserDetailResult {
+        userid: string;
+        name: string;
+        department: number[];
         errcode: number;
     }
     export interface 调度汇总 {

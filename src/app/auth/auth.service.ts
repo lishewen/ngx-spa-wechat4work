@@ -42,6 +42,10 @@ export class AuthService {
     return this.datasource.auth_token != null;
   }
 
+  get UserName(): string {
+    return this.datasource.UserName;
+  }
+
   clear() {
     this.datasource.auth_token = null;
   }
