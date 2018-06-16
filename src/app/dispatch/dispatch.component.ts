@@ -28,8 +28,8 @@ export class DispatchComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.filterPredicate = (d, filter) =>
         d.onBoardid.toString().indexOf(filter) > -1
-        || d.name.indexOf(filter) > -1
-        || d.lineName.indexOf(filter) > -1
+        || (d.name != null && d.name.indexOf(filter) > -1)
+        || (d.lineName != null && d.lineName.indexOf(filter) > -1)
         || (d.stationName != null && d.stationName.indexOf(filter) > -1)
     });
   }
