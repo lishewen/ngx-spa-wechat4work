@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { server } from '../models';
 import { BusEventService } from '../bus-event/bus-event.service';
 import { MessageService } from '../ext/message.service';
+import { RestDataSource } from '../auth/rest-data-source';
 
 @Component({
   selector: 'app-timeline',
@@ -16,13 +17,19 @@ export class TimelineComponent implements OnInit {
   constructor(private t: TitleService,
     private route: ActivatedRoute,
     private service: BusEventService,
-    private messenger: MessageService) {
+    private messenger: MessageService,
+    private rest: RestDataSource) {
     t.setTitle(this.title);
     this.busevent = new Object() as server.busEvent;
   }
 
   ngOnInit() {
     this.getEvent();
+    //加载时请求用户信息
+    if (this.rest.userDetail == null)
+      this.rest.getUserDetail().subscribe(data => {
+        this.rest.userDetail = data;
+      });
   }
 
   getEvent() {
@@ -36,6 +43,7 @@ export class TimelineComponent implements OnInit {
 
   pass(item: server.eventItem) {
     item.state = server.eventItemState.通过;
+    item.approval = this.rest.userDetail.name;
     this.service.patchEventItem(item).subscribe(res => {
       if (res.ok)
         this.messenger.add('审核通过！');
@@ -45,6 +53,7 @@ export class TimelineComponent implements OnInit {
 
   unpass(item: server.eventItem) {
     item.state = server.eventItemState.不通过;
+    item.approval = this.rest.userDetail.name;
     this.service.patchEventItem(item).subscribe(res => {
       if (res.ok)
         this.messenger.add('审核不通过！');
