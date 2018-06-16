@@ -13,6 +13,11 @@
       <p>填报人： {{ event.writer }}</p>
       <p>涉及金额：￥{{ event.money }}</p>
       <img *ngIf="event.img" [src]="event.img" style="width: 100%" />
+      <div class="button-row">
+        审核：
+        <button mat-raised-button color="primary" (click)="pass(event)">通过</button>
+        <button mat-raised-button color="warn" (click)="unpass(event)">不通过</button>
+      </div>
     </div>
   </ng-template>
 </ngx-chronology>

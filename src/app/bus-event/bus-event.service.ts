@@ -30,4 +30,9 @@ export class BusEventService {
     let header = this.rest.Header;
     return this.http.put(this.busEventApiUrl + '/' + id, model, { headers: header, observe: 'response' });
   }
+
+  patchEventItem(model: server.eventItem) {
+    let header = this.rest.Header;
+    return this.http.patch(this.busEventApiUrl, model, { headers: header, observe: 'response' });
+  }
 }
