@@ -39,6 +39,7 @@ export class TimelineComponent implements OnInit {
     this.service.patchEventItem(item).subscribe(res => {
       if (res.ok)
         this.messenger.add('审核通过！');
+      this.getEvent();
     });
   }
 
@@ -47,6 +48,7 @@ export class TimelineComponent implements OnInit {
     this.service.patchEventItem(item).subscribe(res => {
       if (res.ok)
         this.messenger.add('审核不通过！');
+      this.getEvent();
     });
   }
 }
