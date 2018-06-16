@@ -5,6 +5,7 @@ import { UploaderService } from '../ext/uploader.service';
 import { TitleService } from '../ext/title.service';
 import { server } from '../models';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RestDataSource } from '../auth/rest-data-source';
 
 @Component({
   selector: 'app-add-event-item',
@@ -21,7 +22,8 @@ export class AddEventItemComponent implements OnInit {
     private messenger: MessageService,
     private service: BusEventService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private rest: RestDataSource) {
     t.setTitle(this.title);
 
     this.model = new Object() as server.eventItem;
@@ -38,6 +40,16 @@ export class AddEventItemComponent implements OnInit {
         this.router.navigateByUrl('/timeline/' + id);
       }
     });
+  }
+
+  getUserName() {
+    if (this.rest.userDetail == null)
+      this.rest.getUserDetail().subscribe(data => {
+        this.rest.userDetail = data;
+        this.model.writer = data.name;
+      });
+    else
+      this.model.writer = this.rest.userDetail.name;
   }
 
   selectFile(file: File) {

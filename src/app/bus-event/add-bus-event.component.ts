@@ -4,6 +4,7 @@ import { MessageService } from '../ext/message.service';
 import { TitleService } from '../ext/title.service';
 import { BusEventService } from './bus-event.service';
 import { server } from '../models';
+import { RestDataSource } from '../auth/rest-data-source';
 
 @Component({
   selector: 'app-add-bus-event',
@@ -18,7 +19,8 @@ export class AddBusEventComponent implements OnInit {
   constructor(private t: TitleService,
     private uploaderService: UploaderService,
     private messenger: MessageService,
-    private service: BusEventService) {
+    private service: BusEventService,
+    private rest: RestDataSource) {
     t.setTitle(this.title);
 
     this.model = new Object() as server.busEvent;
@@ -32,6 +34,16 @@ export class AddBusEventComponent implements OnInit {
       if (res.ok)
         this.messenger.add('提交成功！');
     });
+  }
+
+  getUserName() {
+    if (this.rest.userDetail == null)
+      this.rest.getUserDetail().subscribe(data => {
+        this.rest.userDetail = data;
+        this.model.writer = data.name;
+      });
+    else
+      this.model.writer = this.rest.userDetail.name;
   }
 
   selectFile(file: File) {

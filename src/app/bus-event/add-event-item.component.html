@@ -17,6 +17,9 @@
     (change)="selectFile($event.target.files[0])">
   <mat-form-field>
     <input matInput placeholder="填报人" [(ngModel)]="model.writer" />
+    <button mat-button *ngIf="!model.writer" matSuffix mat-icon-button aria-label="本人" (click)="getUserName()">
+      <mat-icon>nature_people</mat-icon>
+    </button>
   </mat-form-field>
   <div class="button-row">
     <button mat-raised-button color="primary" (click)="newEventItem()">提交</button>

@@ -43,20 +43,10 @@ export class RestDataSource {
         return this.user.userId;
     }
 
-    get UserName(): string {
-        if (this.userDetail == null)
-            this.getUserDetail().subscribe(data => {
-                this.userDetail = data;
-                return this.userDetail.name;
-            });
-        else
-            return this.userDetail.name;
-    }
-
     get Header(): HttpHeaders {
         let header = new HttpHeaders();
-        header.append('x-userid', this.user != null ? this.user.userId : '');
-        header.append('x-userticket', this.auth_token);
+        header = header.append('x-userid', this.user != null ? this.user.userId : '');
+        header = header.append('x-userticket', this.auth_token);
         return header;
     }
 }
