@@ -14,7 +14,8 @@
       <p>涉及金额：￥{{ event.money }}</p>
       <img *ngIf="event.img" [src]="event.img" style="width: 100%" />
       <hr/> 审核：
-      <span *ngIf="event.state==1">已通过</span>
+      <span *ngIf="event.state==1">已通过 (审核人：{{event.approval}})</span>
+      <span *ngIf="event.state==2">不通过 (审核人：{{event.approval}})</span>
       <div class="button-row" *ngIf="event.state==0">
         <button mat-raised-button color="primary" (click)="pass(event)">通过</button>
         <button mat-raised-button color="warn" (click)="unpass(event)">不通过</button>
