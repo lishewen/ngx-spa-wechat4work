@@ -16,7 +16,7 @@ export class RestDataSource {
         this.baseUrl = "https://wx.wzjbbus.com/";
         if (!environment.production) {
             //测试token
-            this.auth_token = 'auth_token';
+            this.auth_token = 'BF6F756D-ADF0-42F1-8205-850DDD675253';
         }
     }
 
