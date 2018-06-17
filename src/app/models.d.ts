@@ -94,6 +94,8 @@ declare namespace server {
         writer: string;
         /** 审批人 */
         approval: string;
+        /** 审批时间 */
+        approvalTime: Date;
         /** 相关图片 */
         img: string;
         title: string;
