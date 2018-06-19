@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxAmapModule } from 'ngx-amap';
 
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -23,6 +24,7 @@ import { DispatchComponent } from './dispatch/dispatch.component';
 import { AddBusEventComponent } from './bus-event/add-bus-event.component';
 import { BusEventListComponent } from './bus-event/bus-event-list.component';
 import { AddEventItemComponent } from './bus-event/add-event-item.component';
+import { BusMapComponent } from './bus-map/bus-map.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { AddEventItemComponent } from './bus-event/add-event-item.component';
     DispatchComponent,
     AddBusEventComponent,
     BusEventListComponent,
-    AddEventItemComponent
+    AddEventItemComponent,
+    BusMapComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { AddEventItemComponent } from './bus-event/add-event-item.component';
     NgxChronologyModule,
     MatSnackBarModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    NgxAmapModule.forRoot({ apiKey: 'df3029f8e7e7357793ca78fbe2e1263d' })
   ],
   providers: [RestDataSource],
   bootstrap: [AppComponent]
