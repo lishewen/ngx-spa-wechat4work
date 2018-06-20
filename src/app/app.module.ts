@@ -25,6 +25,7 @@ import { AddBusEventComponent } from './bus-event/add-bus-event.component';
 import { BusEventListComponent } from './bus-event/bus-event-list.component';
 import { AddEventItemComponent } from './bus-event/add-event-item.component';
 import { BusMapComponent } from './bus-map/bus-map.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { BusMapComponent } from './bus-map/bus-map.component';
     AddBusEventComponent,
     BusEventListComponent,
     AddEventItemComponent,
-    BusMapComponent
+    BusMapComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

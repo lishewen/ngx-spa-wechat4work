@@ -51,7 +51,7 @@ declare namespace models {
         direction: number;
         is补发包: boolean;
     }
-    export class ChatMessage {
+    export interface ChatMessage {
         sent: Date;
         message: string
     }

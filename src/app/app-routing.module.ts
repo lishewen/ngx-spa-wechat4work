@@ -11,11 +11,13 @@ import { AddBusEventComponent } from './bus-event/add-bus-event.component';
 import { BusEventListComponent } from './bus-event/bus-event-list.component';
 import { AddEventItemComponent } from './bus-event/add-event-item.component';
 import { BusMapComponent } from './bus-map/bus-map.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent, pathMatch: 'full' },
   { path: 'wxauth', component: WxauthComponent },
   { path: 'busmap', component: BusMapComponent },
+  { path: 'chat', component: ChatComponent },
   { path: 'addbusevent', component: AddBusEventComponent, canActivate: [AuthGuard] },
   { path: 'table', component: JbtableComponent, canActivate: [AuthGuard] },
   { path: 'buseventlist', component: BusEventListComponent, canActivate: [AuthGuard] },
