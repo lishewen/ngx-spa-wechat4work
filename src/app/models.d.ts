@@ -51,6 +51,10 @@ declare namespace models {
         direction: number;
         is补发包: boolean;
     }
+    export class ChatMessage {
+        sent: Date;
+        message: string
+    }
 }
 
 declare namespace server {
