@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: '', component: IndexComponent, pathMatch: 'full' },
   { path: 'wxauth', component: WxauthComponent },
   { path: 'busmap', component: BusMapComponent },
-  { path: 'chat', component: ChatComponent },
+  { path: 'chat', component: ChatComponent, canActivate: [AuthGuard] },
   { path: 'addbusevent', component: AddBusEventComponent, canActivate: [AuthGuard] },
   { path: 'table', component: JbtableComponent, canActivate: [AuthGuard] },
   { path: 'buseventlist', component: BusEventListComponent, canActivate: [AuthGuard] },

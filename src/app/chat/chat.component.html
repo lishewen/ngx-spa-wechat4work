@@ -3,7 +3,9 @@
     {{chatMessage.sent | date:"dd.MM.y" }}: {{chatMessage.message}}
   </li>
 </ul>
-<mat-form-field>
-  <input type="text" matInput id="exampleInputEmail1" placeholder="Message" [(ngModel)]="currentMessage.message" name="message">
-</mat-form-field>
-<button mat-raised-button color="primary" [disabled]="!canSendMessage" (click)="sendMessage()">Send</button>
+<div class="form-container">
+  <mat-form-field>
+    <input type="text" matInput placeholder="Message" [(ngModel)]="currentMessage.message" name="message" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="!canSendMessage" (click)="sendMessage()">Send</button>
+</div>
