@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TitleService } from '../ext/title.service';
 import { MessageService } from '../ext/message.service';
+import gcoord from 'gcoord';
 
 @Component({
   selector: 'app-bus-map',
@@ -12,12 +13,14 @@ export class BusMapComponent implements OnInit {
   centerPoint: number[] = [111.279115, 23.476963]
   constructor(private t: TitleService, private msg: MessageService) {
     t.setTitle(this.title);
+    this.centerPoint = gcoord.transform(this.centerPoint, gcoord.WGS84, gcoord.AMap);
   }
 
   ngOnInit() {
     if (window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(point => {
-        this.centerPoint = [point.coords.longitude, point.coords.latitude];
+        //this.centerPoint = [point.coords.longitude, point.coords.latitude];
+        this.centerPoint = gcoord.transform([point.coords.longitude, point.coords.latitude], gcoord.WGS84, gcoord.AMap);
       }, error => {
         this.msg.add(error.message);
       });
