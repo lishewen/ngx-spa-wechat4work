@@ -16,7 +16,7 @@ export class BusMapComponent implements OnInit {
   gprsId = 260;
   direction = '0';
   line: server.lineInfo;
-  lineArr: number[] = [];
+  lineArr: number[][] = [];
 
   constructor(private t: TitleService, private msg: MessageService, private busmap: BusMapService) {
     t.setTitle(this.title);
@@ -39,10 +39,12 @@ export class BusMapComponent implements OnInit {
     this.busmap.getLineInfo(this.gprsId, +this.direction).subscribe(l => {
       this.line = l;
       this.busmap.getPolyline(l.amapId).subscribe(json => {
-        this.lineArr = [];
-        json.buslines[0].polyline.split(',').forEach((v) => {
-          this.lineArr.push(+v);
+        let polyline: number[][] = [];
+        json.buslines[0].polyline.split(';').forEach((v) => {
+          let sv = v.split(',');
+          polyline.push([+sv[0], +sv[1]]);
         });
+        this.lineArr = polyline;
       });
     });
   }
