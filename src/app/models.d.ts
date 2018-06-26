@@ -118,4 +118,31 @@ declare namespace server {
         type: string;
         extName: string;
     }
+    interface lineInfo extends entityBase<number> {
+        gprsId: number;
+        direction: number;
+        amapId: string;
+    }
+}
+
+declare namespace Json2TS {
+
+    export interface Busline {
+        id: string;
+        type: string;
+        name: string;
+        polyline: string;
+        citycode: string;
+        start_stop: string;
+        end_stop: string;
+    }
+
+    export interface LineJson {
+        status: string;
+        info: string;
+        infocode: string;
+        count: string;
+        buslines: Busline[];
+    }
+
 }

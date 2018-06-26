@@ -1,3 +1,19 @@
+<p *ngIf="line">当前查看线路：{{line.name}}</p>
 <ngx-amap class="demo-map" [resizeEnable]="true" [center]="centerPoint" [zoom]="17">
   <amap-marker [position]="centerPoint"></amap-marker>
+  <amap-polyline [path]="lineArr" [strokeColor]="'#3366FF'" [strokeOpacity]="1" [strokeWeight]="5" [strokeStyle]="'solid'"
+    [strokeDasharray]="[10, 5]">
+  </amap-polyline>
 </ngx-amap>
+<div>
+  <mat-form-field>
+    <input type="number" matInput placeholder="线路id" [(ngModel)]="gprsId" name="gprsId" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="上下行" [(ngModel)]="direction">
+      <mat-option value="0">上行</mat-option>
+      <mat-option value="1">下行</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="lineQuery()">查询</button>
+</div>

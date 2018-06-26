@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JbNavComponent } from './jb-nav/jb-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSnackBarModule, MatDividerModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSnackBarModule, MatDividerModule, MatOptionModule, MatSelectModule } from '@angular/material';
 import { IndexComponent } from './index/index.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
@@ -67,6 +67,8 @@ import { ChatComponent } from './chat/chat.component';
     MatSnackBarModule,
     MatListModule,
     MatDividerModule,
+    MatSelectModule,
+    MatOptionModule,
     NgxAmapModule.forRoot({ apiKey: 'df3029f8e7e7357793ca78fbe2e1263d' })
   ],
   providers: [RestDataSource],
