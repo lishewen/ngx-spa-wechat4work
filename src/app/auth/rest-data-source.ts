@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 import { models } from "../models";
+import { CONFIGURATION } from "../shared/app.constants";
 
 @Injectable()
 export class RestDataSource {
@@ -13,7 +14,7 @@ export class RestDataSource {
     userDetail: models.GetUserDetailResult;
 
     constructor(private http: HttpClient) {
-        this.baseUrl = "https://wx.wzjbbus.com/";
+        this.baseUrl = CONFIGURATION.baseUrls.server;
         if (!environment.production) {
             //测试token
             this.auth_token = 'BF6F756D-ADF0-42F1-8205-850DDD675253';

@@ -1,6 +1,10 @@
 import { IChronologyEvent } from "ngx-chronology";
 
 declare namespace models {
+    export interface signalRState {
+        count: number;
+        lastMessage: string;
+    }
     export interface busInfo {
         id: number;
         samID: string;

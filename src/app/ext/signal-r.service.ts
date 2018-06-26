@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { models } from '../models';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import { CONFIGURATION } from '../shared/app.constants';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +13,20 @@ export class SignalRService {
   connectionEstablished = new Subject<Boolean>();
   private hubConnection: HubConnection;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.createConnection();
     this.registerOnServerEvents();
     this.startConnection();
   }
 
+  getSignalRState() {
+    return this.http.get<models.signalRState>(CONFIGURATION.baseUrls.server + CONFIGURATION.baseUrls.apiUrl + 'ui/GetSignalRState');
+  }
+
   sendChatMessage(message: models.ChatMessage) {
     this.hubConnection.invoke('SendMessage', message);
   }
+
   private createConnection() {
     this.hubConnection = new HubConnectionBuilder()
       .withUrl(CONFIGURATION.baseUrls.server + 'testmessages')

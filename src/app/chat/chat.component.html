@@ -1,3 +1,4 @@
+<p>当前在线人数：{{count}}</p>
 <ul>
   <li *ngFor="let chatMessage of allMessages" style="list-style: none;">
     {{chatMessage.sent | date:"dd.MM.y" }}: {{chatMessage.message}}

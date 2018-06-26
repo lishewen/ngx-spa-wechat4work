@@ -13,12 +13,14 @@ export class ChatComponent implements OnInit {
   currentMessage: models.ChatMessage;
   allMessages: models.ChatMessage[];
   canSendMessage: boolean;
+  count: number;
 
   constructor(private t: TitleService, private signalRService: SignalRService) {
     t.setTitle(this.title);
     this.subscribeToEvents();
     this.currentMessage = new Object as models.ChatMessage;
     this.allMessages = [];
+    signalRService.getSignalRState().subscribe(state => this.count = state.count);
   }
 
   sendMessage() {
