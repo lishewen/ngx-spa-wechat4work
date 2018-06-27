@@ -46,7 +46,7 @@ import { ChatComponent } from './chat/chat.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('/ngsw-worker-polyfill.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,

@@ -21,7 +21,12 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              {
+                "glob": "ngsw-worker-polyfill.js",
+                "input": "src",
+                "output": "/"
+              }
             ],
             "styles": [
               {
@@ -86,7 +91,12 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              {
+                "glob": "ngsw-worker-polyfill.js",
+                "input": "src",
+                "output": "/"
+              }
             ]
           }
         },
