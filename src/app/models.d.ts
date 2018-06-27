@@ -1,4 +1,5 @@
 import { IChronologyEvent } from "ngx-chronology";
+import { ILabel } from "ngx-amap";
 
 declare namespace models {
     export interface signalRState {
@@ -123,6 +124,35 @@ declare namespace server {
         direction: number;
         amapId: string;
     }
+    interface packetBase {
+        type: any;
+        /** GprsId */
+        gprsId: number;
+        /** 车辆ID */
+        onBoardid: number;
+        车辆运行状态标识: packetType;
+        运营状态: boolean;
+        direction: number;
+        is补发包: boolean;
+    }
+    const enum packetType {
+        车辆出站 = 0x91,
+        车辆进站 = 0x82,
+        车辆实时坐标信息 = 0x80,
+    }
+    interface 车辆实时坐标信息 extends packetBase {
+        事件触发时间: Date;
+        /** public string 北纬纬度 { get; set; } */
+        纬度: number;
+        /** public string 东经经度 { get; set; } */
+        经度: number;
+    }
+    interface busMarker {
+        /** 车辆ID */
+        onBoardid: number;
+        marker: number[];
+        label: ILabel;
+    }
 }
 
 declare namespace Json2TS {
@@ -145,4 +175,8 @@ declare namespace Json2TS {
         buslines: Busline[];
     }
 
+    export interface Line {
+        gprsId: number;
+        direction: number;
+    }
 }
