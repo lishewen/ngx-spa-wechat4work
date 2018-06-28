@@ -21,6 +21,7 @@ export class BusMapComponent implements OnInit {
   online: boolean;
   busmarkers: server.busMarker[] = [];
   busicon: IIcon;
+  open: boolean = false;
 
   constructor(private t: TitleService, private msg: MessageService, private busmap: BusMapService) {
     t.setTitle(this.title);

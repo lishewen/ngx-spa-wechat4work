@@ -1,15 +1,5 @@
-<p *ngIf="line">当前查看线路：{{line.name}} | 状态：{{online?'在线':'离线'}} | 在线车辆数：{{busmarkers.length}}</p>
-<ngx-amap class="demo-map" [resizeEnable]="true" [center]="centerPoint" [zoom]="17">
-  <amap-marker [position]="centerPoint"></amap-marker>
-  <amap-polyline [path]="lineArr" [strokeColor]="'#3366FF'" [strokeOpacity]="1" [strokeWeight]="5" [strokeStyle]="'solid'"
-    [strokeDasharray]="[10, 5]">
-  </amap-polyline>
-  <amap-marker-clusterer [gridSize]="80">
-    <amap-marker *ngFor="let bus of busmarkers" [inCluster]="true" [position]="bus.marker" [icon]="busicon" [label]="bus.label">
-    </amap-marker>
-  </amap-marker-clusterer>
-</ngx-amap>
-<div>
+<button mat-raised-button color="primary" (click)="open = !open">显示/隐藏 信息窗体</button>
+<div *ngIf="open">
   <mat-form-field>
     <input type="number" matInput placeholder="线路id" [(ngModel)]="gprsId" name="gprsId" />
   </mat-form-field>
@@ -20,4 +10,16 @@
     </mat-select>
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="lineQuery()">查询</button>
+  <p *ngIf="line">当前查看线路：{{line.name}} | 状态：{{online?'在线':'离线'}} | 在线车辆数：{{busmarkers.length}}</p>
 </div>
+<hr/>
+<ngx-amap class="demo-map" [resizeEnable]="true" [center]="centerPoint" [zoom]="17">
+  <amap-marker [position]="centerPoint"></amap-marker>
+  <amap-polyline [path]="lineArr" [strokeColor]="'#3366FF'" [strokeOpacity]="1" [strokeWeight]="5" [strokeStyle]="'solid'"
+    [strokeDasharray]="[10, 5]">
+  </amap-polyline>
+  <amap-marker-clusterer [gridSize]="80">
+    <amap-marker *ngFor="let bus of busmarkers" [inCluster]="true" [position]="bus.marker" [icon]="busicon" [label]="bus.label">
+    </amap-marker>
+  </amap-marker-clusterer>
+</ngx-amap>
